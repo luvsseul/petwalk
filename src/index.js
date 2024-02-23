@@ -10,6 +10,7 @@ import {
 import NotFound from './Pages/NotFound';
 import Home from './Pages/Home';
 import Notice from './Pages/Notice';
+import Community from './Pages/Community';
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "notice",
         element: <Notice />,
+      },
+      {
+        path: "community",
+        element: <Community />,
       },
     ],
   },
