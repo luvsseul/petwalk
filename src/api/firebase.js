@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { v4 as uuid } from 'uuid';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
-import { getDatabase } from "firebase/database";
+import { get, getDatabase, ref, set } from "firebase/database";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -29,4 +30,18 @@ export function onUserStateChange(callback) {
         callback(user);
     });
 
+}
+
+export async function addNewPost(post, today, imageUrl = '') {
+    const id = uuid();
+    set(ref(database, `post/${id}`), { ...post, id, today, image: imageUrl })
+}
+
+export async function getPost() {
+    return get(ref(database, 'post')).then(snapshot => {
+        if (snapshot.exists()) {
+            return Object.values(snapshot.val());
+        }
+        return [];
+    })
 }

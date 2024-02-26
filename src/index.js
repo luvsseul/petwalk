@@ -11,6 +11,7 @@ import NotFound from './Pages/NotFound';
 import Home from './Pages/Home';
 import Notice from './Pages/Notice';
 import Community from './Pages/Community';
+import PostDetail from './Pages/PostDetail';
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         path: "community",
         element: <Community />,
       },
+      {
+        path: "community/:id",
+        element: <PostDetail />
+      }
     ],
   },
 ]);
