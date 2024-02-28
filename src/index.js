@@ -12,6 +12,7 @@ import Home from './Pages/Home';
 import Notice from './Pages/Notice';
 import Community from './Pages/Community';
 import PostDetail from './Pages/PostDetail';
+import MyMap from './components/MyMap';
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "notice",
         element: <Notice />,
+      },
+      {
+        path: "mymap",
+        element: <MyMap />,
       },
       {
         path: "community",

@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 
 export default function PostDetail() {
-    const {state: {post: {id, image, spotType, title, today, writer, description}}} = useLocation();
+    const {state: {post: {id, image, spotType, title, today, writer, place, description}}} = useLocation();
   return (
     <>
         <p className='mx-12 mt-4 text-right text-gray-700'>{spotType}</p>
@@ -14,6 +14,7 @@ export default function PostDetail() {
                     <p className='text-xl font-bold py-2'>{writer}</p>
                     <p className='text-2xl font-bold py-2'>{today}</p>
                 </div>
+                <p>{place}</p>
                 <p className='pt-4'>{description}</p>
             </div>
         </section>

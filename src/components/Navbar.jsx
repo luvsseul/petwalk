@@ -24,6 +24,7 @@ export default function Navbar() {
     <Link to ='/' className='flex items-center'>
     <h1 className='font-bold ml-2 text-3xl'>Pet Walk</h1>
     </Link>    
+    <Link to ='/mymap'>MyMap</Link> 
     <Link to ='/community'>Community</Link>
     <form className='w-full flex justify-center' onSubmit={handleSubmit}>
         <input className='w-7/12 p-2 outline-none bg-black text-gray-50' type='text' id='search' placeholder='Search to go !' value={text} onChange={e=> setText(e.target.value)}/>

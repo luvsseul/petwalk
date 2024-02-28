@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function PostCard({post, post: {id, title, today, writer, spotType, image}}) {
+export default function PostCard({post, post: {id, title, today, writer, spotType, place, image}}) {
   const navigate = useNavigate();
   return (
     <li onClick={()=>{navigate(`/community/${id}`, {state: {post}})
@@ -15,6 +15,7 @@ export default function PostCard({post, post: {id, title, today, writer, spotTyp
       <div className='mb-2 px-2 text-gray-600'>
         <p>{writer}</p>
         <p>{spotType}</p>
+        <p>{place}</p>
       </div>
     </li>
   )

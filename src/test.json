@@ -1,52 +1,119 @@
-{
-    "coord": {
-        "lon": 126.9778,
-        "lat": 37.5683
-    },
-    "weather": [
-        {
-            "id": 500,
-            "main": "Rain",
-            "description": "light rain",
-            "icon": "10d"
-        },
-        {
-            "id": 601,
-            "main": "Snow",
-            "description": "snow",
-            "icon": "13d"
-        }
-    ],
-    "base": "stations",
-    "main": {
-        "temp": 274.89,
-        "feels_like": 271.67,
-        "temp_min": 273.84,
-        "temp_max": 274.91,
-        "pressure": 1020,
-        "humidity": 100
-    },
-    "visibility": 7000,
-    "wind": {
-        "speed": 3.09,
-        "deg": 20
-    },
-    "snow": {
-        "1h": 0.88
-    },
-    "clouds": {
-        "all": 100
-    },
-    "dt": 1708495104,
-    "sys": {
-        "type": 1,
-        "id": 8105,
-        "country": "KR",
-        "sunrise": 1708467343,
-        "sunset": 1708506976
-    },
-    "timezone": 32400,
-    "id": 1835848,
-    "name": "Seoul",
-    "cod": 200
-}
+: 
+address
+: "경기도 남양주시 화도읍 금남리 192-5 엠아르"
+category
+: "음식점>양식"
+description
+: ""
+link
+: "http://www.facebook.com/emmm.rrr"
+mapx
+: "1273688376"
+mapy
+: "376502837"
+roadAddress
+: "경기도 남양주시 화도읍 북한강로 1602-22 엠아르"
+telephone
+: ""
+title
+: "엠아르 남양주본점"[
+    [Prototype
+    ]
+]
+: 
+Object
+1
+: 
+address
+: "경기도 남양주시 와부읍 월문리 218-2"
+category
+: "한식>돼지고기구이"
+description
+: ""
+link
+: ""
+mapx
+: "1272636585"
+mapy
+: "376221483"
+roadAddress
+: "경기도 남양주시 와부읍 수레로661번길 142"
+telephone
+: ""
+title
+: "아르페지오"[
+    [Prototype
+    ]
+]
+: 
+Object
+2
+: 
+address
+: "서울특별시 마포구 서교동 328-74 1층 커피 벌스데이"
+category
+: "음식점>카페,디저트"
+description
+: ""
+link
+: "https://instagram.com/cbd.coffeebirthday?utm_medium=copy_link"
+mapx
+: "1269287579"
+mapy
+: "375555300"
+roadAddress
+: "서울특별시 마포구 와우산로29길 26-33 1층 커피 벌스데이"
+telephone
+: ""
+title
+: "커피 벌스데이"[
+    [Prototype
+    ]
+]
+: 
+Object
+3
+: 
+address
+: "강원특별자치도 춘천시 신북읍 천전리 99-13"
+category
+: "카페,디저트>베이커리"
+description
+: ""
+link
+: "http://www.batt-corp.com/"
+mapx
+: "1277844985"
+mapy
+: "379296125"
+roadAddress
+: "강원특별자치도 춘천시 신북읍 신샘밭로 674"
+telephone
+: ""
+title
+: "감자밭"[
+    [Prototype
+    ]
+]
+: 
+Object
+4
+: 
+address
+: "서울특별시 강남구 삼성동 113-5 호텔 크레센도 서울 1층"
+category
+: "음식점>브런치"
+description
+: ""
+link
+: "https://app.catchtable.co.kr/ct/shop/428restaurant"
+mapx
+: "1270468975"
+mapy
+: "375108407"
+roadAddress
+: "서울특별시 강남구 봉은사로 428 호텔 크레센도 서울 1층"
+telephone
+: ""
+title
+: "428"

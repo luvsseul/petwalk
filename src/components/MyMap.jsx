@@ -15,7 +15,7 @@ export default function MyMap() {
       position.coords.longitude,
     )
     map.setCenter(location)
-    map.setZoom(10)
+    map.setZoom(17)
     infowindow.setContent(
       '<div style="padding:20px;">' +
         'geolocation.getCurrentPosition() 위치' +
