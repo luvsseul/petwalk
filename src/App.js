@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 export default function App() {
   return (
     <NavermapsProvider ncpClientId={process.env.REACT_APP_NAVERMAP_ID}
-      submodules={['panorama']} >
+      submodules={['panorama', 'geocoder']} >
       <Navbar />
       <QueryClientProvider client={queryClient}>
         <Outlet />

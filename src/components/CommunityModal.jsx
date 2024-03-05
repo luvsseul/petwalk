@@ -17,6 +17,7 @@ export default function CommunityModal({onClose}) {
    
     const [file, setFile] = useState();
     const [results, setResults] = useState([]);
+    const [selectedResult, setSelectedResult] = useState();
     const [query, setQuery] = useState('');
   
     const fetchSearchResults = (query)=> {
@@ -25,6 +26,7 @@ export default function CommunityModal({onClose}) {
 
     const handleResultSelect = (result) => {
         setQuery(result.title.replace(/<[^>]+>/g, ''));
+        setSelectedResult(result);
         setResults([]);
         };
 
@@ -48,12 +50,14 @@ export default function CommunityModal({onClose}) {
         if (file) {
             imageUrl = await uploadImage(file).then(url => url);
         }    
-        const updatedPost = { ...post, place: query, today };
+        const updatedPost = { ...post, place: query, today, selectedResult };
         await addNewPost(updatedPost, today, imageUrl);
         
         queryClient.invalidateQueries(['post']);
         onClose();
     };
+    
+    console.log(selectedResult);
   return (
     //위치(지도상표시)
     <div className='fixed top-1/2 left-1/2 w-2/3 max-h-svh -translate-x-1/2 -translate-y-1/2 overflow-auto'>
@@ -93,7 +97,7 @@ export default function CommunityModal({onClose}) {
                     onChange={handleChange}
                     placeholder="장소명을 입력하세요"/>
                     <button onClick={() => fetchSearchResults(query)}>검색</button>
-                    {results.length > 0 && (
+                    {results && results.length > 0 && (
                         <ul className='w-full my-12'>
                             {results.map((result, index)=> (
                                 <li className='w-2/3 p-2 mx-auto my-2 border bg-white rounded-2xl' key={index} onClick={()=> handleResultSelect(result)}>
