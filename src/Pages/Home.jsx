@@ -1,11 +1,12 @@
 import React from 'react'
-// import MyMap from '../components/MyMap'
 import MyWeather from '../components/MyWeather'
+import MyMap from '../components/MyMap'
 
 export default function Home() {
     return (
         <div>
            <MyWeather />
+           <MyMap />
         </div>
     )
 }

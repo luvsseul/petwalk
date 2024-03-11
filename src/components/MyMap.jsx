@@ -21,6 +21,7 @@ export default function MyMap() {
     outline: '0 none',
     borderRadius: '5px',
     boxShadow: '2px 2px 1px 1px rgba(0, 0, 0, 0.5)',
+    transform: 'translateY(2.5rem) translateX(1rem)'
   }
 
   
@@ -104,7 +105,7 @@ export default function MyMap() {
   }, [map, infowindow]);
 
   return (
-    <>
+    <div className='relative -translate-y-10'>
     <MapDiv id='react-naver-map' className='my-map' style={{position:'relative', width: '100%', height: '100vh',}}>
     <NaverMap
       defaultcenter={new navermaps.LatLng(37.3595704, 127.105399)}
@@ -129,6 +130,6 @@ export default function MyMap() {
         ))}
       </NaverMap>
     </MapDiv>
-    </>
+    </div>
   )
 }

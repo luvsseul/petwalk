@@ -30,10 +30,6 @@ const router = createBrowserRouter([
         element: <Notice />,
       },
       {
-        path: "mymap",
-        element: <MyMap />,
-      },
-      {
         path: "community",
         element: <Community />,
       },

@@ -33,9 +33,8 @@ export default function MyWeather() {
     };
 
   return (
-  <>
-    
-      <div className="relative">
+  <div className='fixed z-10 top-36 left-4'>    
+      <div>
         <input
         type="text"
         className="w-64 p-4 ps-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -58,6 +57,6 @@ export default function MyWeather() {
     <p className="font-normal text-gray-700 dark:text-gray-400">{Math.round((result.main.temp -273.15) * 10) / 10}°C</p>
     <p className="font-normal text-gray-700 dark:text-gray-400">{result.weather[0].main}</p>
     </div>)}
-  </>
+  </div>
   )
 }
