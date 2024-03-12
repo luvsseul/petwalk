@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Container as MapDiv, NaverMap, Marker, useNavermaps, InfoWindow} from 'react-naver-maps';
-import { getPost } from '../api/firebase';
+import { useNavigate } from 'react-router-dom';
+import { usePostContext } from '../context/PostContext';
 
 export default function MyMap() {
   // instead of window.naver.maps
-  const [ selectedSpot, setSelectedSpot ] = useState([]);
+  const {isLoading, error, post} = usePostContext();
   const navermaps = useNavermaps();
   const [map, setMap] = useState(null);
   const [infowindow, setInfoWindow] = useState(null);
@@ -23,20 +24,7 @@ export default function MyMap() {
     boxShadow: '2px 2px 1px 1px rgba(0, 0, 0, 0.5)',
     transform: 'translateY(2.5rem) translateX(1rem)'
   }
-
-  
-  useEffect(() => {
-    async function postSpot() {
-      const data = await getPost();
-      const spots = data.map(d => {
-        const lat = d.selectedResult.mapy / 10000000;
-        const lng = d.selectedResult.mapx / 10000000;
-        return { lat, lng };
-      });
-      setSelectedSpot(spots);
-    }
-    postSpot();
-  }, []);
+  const navigate = useNavigate();
 
   function onSuccessGeolocation(position) {
     if (!map || !infowindow) return;
@@ -49,7 +37,7 @@ export default function MyMap() {
     map.setZoom(17)
     infowindow.setContent(
       '<div style="padding:20px;">' +
-        'geolocation.getCurrentPosition() 위치' +
+        '현재위치' +
         '</div>',
     )
     infowindow.open(map, location)
@@ -106,6 +94,8 @@ export default function MyMap() {
 
   return (
     <div className='relative -translate-y-10'>
+      {isLoading && <p>loading...</p>}
+      {error && <p>{error}</p>}
     <MapDiv id='react-naver-map' className='my-map' style={{position:'relative', width: '100%', height: '100vh',}}>
     <NaverMap
       defaultcenter={new navermaps.LatLng(37.3595704, 127.105399)}
@@ -125,9 +115,17 @@ export default function MyMap() {
       </button>
       <InfoWindow ref={setInfoWindow} />
 
-      {selectedSpot && selectedSpot.map((spot, index) => ( 
-        <Marker key={index} position={new navermaps.LatLng(spot.lat, spot.lng)} />
-        ))}
+      {post && post.map((post,index) => {
+        const lat = post.selectedResult?.mapy / 10000000;
+        const lng = post.selectedResult?.mapx / 10000000;
+        if (lat === undefined || lng === undefined) return null;
+        return (
+        <Marker
+          key={index}
+          position={new navermaps.LatLng(lat, lng)}
+          onClick={() => navigate(`/community/${post.id}`, {state: {post}})}
+          icon={require('../image/paw.png')}
+        />)})}
       </NaverMap>
     </MapDiv>
     </div>

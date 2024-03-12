@@ -1,6 +1,7 @@
 import { Container as MapDiv, NaverMap, Marker, useNavermaps } from 'react-naver-maps';
 
-export default function RecommandSpot({selectedResult}) {
+export default function RecommandSpot({result}) {
+    const {id, place, selectedResult} = result;
     const navermaps = useNavermaps();
     if(!selectedResult) return null;
     const lat = selectedResult.mapy / 10000000

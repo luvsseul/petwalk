@@ -13,7 +13,7 @@ export default function PostDetail() {
                     {image ? <img className='w-full h-full px-4 rounded-l-[100px]' src={image} alt={title}/> : <img className='w-full px-4' src='https://picsum.photos/200/300' alt={title} />}
                 </div>
                 <div className='w-full mr-4 rounded-r-[100px] overflow-hidden'>
-                    <RecommandSpot selectedResult={selectedResult} />
+                    <RecommandSpot result={{id, place, selectedResult}} />
                 </div>
             </div>
             <div className='w-full flex flex-col mt-6 p-4'>
